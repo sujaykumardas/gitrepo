@@ -1,0 +1,174 @@
+<html>
+<head>
+<script type="text/javascript">
+       var str= /^[A-Za-z]+$/;
+       var num= /^[0-9]{2}$/;
+       var yn= /^(y|n){1}$/;
+       var dof= /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+       var emid= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+       var ph =/^\d{10}$/;
+       var cgpaf= /^[0-9]{1}\.{1}[0-9]+$/;
+       var pswd= /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+       var cpat= /^sU8Nki$/i;
+       var pin= /^[0-9]{6}$/;
+       var ch=0;
+       function validate(){ 
+               
+               
+        if(ch==0)
+        {
+           
+           document.getElementById('button').innerHTML="<span style='color: green;'><br>Form submitted successfully<br></span>";
+           document.getElementById('but').style.borderColor = "Green";
+           
+        }
+  
+    }
+    function validate1(){
+        
+        if(!str.test(myform.fname.value))
+        {
+           ch=1;
+           //document.getElemenyById("fname").style.borderColor= "red";
+           document.getElementById('errfn').innerHTML="<span style='color: red;'><br>this is invalid first name<br></span>";
+           document.getElementById('fname').style.borderColor = "red";
+           
+           
+     
+        }
+    }
+    function validate2(){
+        
+        if(!str.test(myform.lname.value))
+        {
+           ch=1;
+           document.getElementById('errln').innerHTML="<span style='color: red;'><br>this is invalid last name<br></span>";
+           document.getElementById('lname').style.borderColor = "red";
+           
+        }
+    }
+    function validate3(){
+        if(!num.test(myform.age.value))
+        {
+           ch=1;
+           document.getElementById('errno').innerHTML="<span style='color: red;'><br>this is invalid age<br></span>";
+           document.getElementById('age').style.borderColor = "red";
+           
+        }
+    }
+    function validate4(){
+        if(!dof.test(myform.dob.value))
+        {
+           ch=1;
+           document.getElementById('errdb').innerHTML="<span style='color: red;'><br>this is invalid birth date<br></span>";
+           document.getElementById('dob').style.borderColor = "red";
+           
+        }
+    }
+    function validate5(){
+        if(!emid.test(myform.mid.value))
+        {
+           ch=1;
+           document.getElementById('erreid').innerHTML="<span style='color: red;'><br>this is invalid mail address<br></span>";
+           document.getElementById('mid').style.borderColor = "red";
+           
+        }
+    }
+    function validate6(){
+        if(!yn.test(myform.ms.value))
+        {
+           ch=1;
+           document.getElementById('errms').innerHTML="<span style='color: red;'><br>this is invalid married status<br></span>";
+           document.getElementById('ms').style.borderColor = "red";
+           
+        }
+    }
+    function validate7(){
+         if(!ph.test(myform.phn.value))
+        {
+           ch=1;
+           document.getElementById('errph').innerHTML="<span style='color: red;'><br>this is invalid mobile number<br></span>";
+           document.getElementById('phn').style.borderColor = "red";
+           
+        }
+    }
+    function validate8(){
+        if(!cgpaf.test(myform.gpa.value))
+        {
+           ch=1;
+           document.getElementById('errcg').innerHTML="<span style='color: red;'><br>this is invalid cgpa<br></span>";
+           document.getElementById('gpa').style.borderColor = "red";
+           
+        }
+    }
+    function validate9(){
+         if(!pin.test(myform.pnc.value))
+        {
+           ch=1;
+           //document.getElemenyById("fname").style.borderColor= "red";
+           document.getElementById('errpnc').innerHTML="<span style='color: red;'><br>this is invalid pincode<br></span>";
+           document.getElementById('pnc').style.borderColor = "red";
+           
+        }
+    }
+    function validate10(){
+        if(!pswd.test(myform.pid.value))
+        {
+           ch=1;
+           document.getElementById('errpid').innerHTML="<span style='color: red;'><br>password min 8 char atleast 1 letter one num and one special character<br></span>";
+           document.getElementById('pid').style.borderColor = "red";
+           
+        }
+    }
+    function validate11(){
+        if(!cpat.test(myform.cpt.value))
+        {
+           ch=1;
+           //document.getElemenyById("fname").style.borderColor= "red";
+           document.getElementById('errcpt').innerHTML="<span style='color: red;'><br>this is invalid captcha<br></span>";
+           document.getElementById('cpt').style.borderColor = "red";
+           
+        }
+    }
+</script>
+</head>
+<body>
+    <form name="myform">
+          First_Name
+         <input type=text id="fname" name="fname"  onblur="validate1()"/><span id="errfn"></span>
+         <br> <br>
+          Last_Name
+         <input type=text id="lname" name="lname" onblur="validate2()"/><span id="errln"></span>
+         <br> <br>
+          Age
+         <input type=text id="age" name=age  onblur="validate3()"/><span id="errno"></span>
+         <br> <br>
+          DOB
+         <input type=text id="dob" name=dob  onblur="validate4()"/><span id="errdb"></span>
+         <br> <br>
+          MailId
+         <input type=text id="mid" name=mid  onblur="validate5()"/><span id="erreid"></span>
+         <br> <br>
+          Married(Y/N)
+         <input type=text id="ms" name=ms  onblur="validate6()"/><span id="errms"></span>
+         <br> <br>
+         Mobile no (Without code)
+         <input type=text id="phn" name=phn  onblur="validate7()"/><span id="errph"></span>
+         <br> <br>
+         AggregateCGPA(x.y)
+         <input type=text id="gpa" name=gpa  onblur="validate8()"/><span id="errcg"></span>
+         <br> <br>
+         Pincode
+         <input type=text id="pnc" name="pnc"  onblur="validate9()"/><span id="errpnc"></span>
+         <br> <br>
+         Password
+         <input type=text id="pid" name=pid onblur="validate10()" /><span id="errpid"></span>
+         <br> <br>
+         Enter the text as it is<br> 
+         sU8Nki
+         <input type=text id="cpt" name=cpt onblur="validate11()" /><span id="errcpt"></span>
+         <br> <br>
+         <input  id="but" type=button onclick="validate()" value=SUBMIT /> <span id="button"></span>
+
+    </form>
+</body>
