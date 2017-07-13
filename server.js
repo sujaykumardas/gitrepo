@@ -1,6 +1,8 @@
 // server.js
 // load the things we need
 var express = require('express');
+var bp = require('body-parser');
+
 var app = express();
 
 // set the view engine to ejs
@@ -19,9 +21,42 @@ app.get('/', function(req, res) {
     console.log("inside get");
     res.render('pages/ajform');
 });
+
+app.use(bp.urlencoded({ extended: false }));
+app.use(bp.json());
+
 app.post('/', function(req, res) {
    console.log("inside post");
-   //console.log(req.body.obj.fname);
+   console.log(req.body.fname);
+   //console.log(req.body.obj.fname);      // your JSON
+   //var json = JSON.parse(req.body);
+   var str= /^[A-Za-z]+$/;
+   var ch=0;
+   var obj={};
+        if(!str.test(req.body.fname))
+        {
+           ch=1;
+           obj.fname="invalid first name";
+           
+           
+     
+        }
+        
+        if(!str.test(req.body.lname))
+        {
+           ch=1;
+           obj.lname="invalid last name";
+        }
+
+        if(ch==0)
+        {
+           obj.but="Form submitted";
+           
+        }
+
+
+   res.set('Content-Type', 'application/json');
+   res.send(JSON.stringify(obj));
     //res.render('pages/ajform');
 });
 
