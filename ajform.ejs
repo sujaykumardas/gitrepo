@@ -1,0 +1,118 @@
+<html>
+<head>
+<script type="text/javascript">
+    function validate() 
+    {
+       var str= /^[A-Za-z]+$/;
+       
+       console.log("inside srvalid");
+       var ch=0;
+        if(!str.test(myform.fname.value))
+        {
+           ch=1;
+           //document.getElemenyById("fname").style.borderColor= "red";
+           document.getElementById('errfn').style.visibility = "visible";
+           document.getElementById('fname').style.borderColor = "red";
+           
+           
+     
+        }
+        
+        if(!str.test(myform.lname.value))
+        {
+           ch=1;
+           document.getElementById('errln').style.visibility = "visible";
+           document.getElementById('lname').style.borderColor = "red";
+           
+        }
+        
+        if(ch==0)
+        {
+           document.getElementById('button').style.visibility = "visible"; 
+           //document.getElementById('button').innerHTML="<span </span>";
+           document.getElementById('but').style.borderColor = "Green";
+           
+        }
+        //document.write("oioio");
+      /*var axios=require('axios');
+      axios.post('/', {
+      fname : fn,
+      lname: ln,
+      
+      })
+      .then(function (response) {
+      //fn.innerHTML = generateSuccessHTMLOutput(response);
+      console.log("inside axios post");
+      })
+      .catch(function (error) {
+      //fn.innerHTML = generateErrorHTMLOutput(error);
+      });*/
+      var obj={fn:"suj"};
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("fname").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("POST", '/', true);
+      xhttp.send(obj);
+        
+  
+    }
+
+    /*function servalid(){
+      var obj={fn:""};
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML = this.responseText;
+        }
+      };
+    xhttp.open("POST", "servervalid.js", true);
+    xhttp.send();
+    }*/
+
+    function servalid(){
+      var fn= document.getElementById('fname').value;
+      var ln= document.getElementById('lname').value;
+      console.log("inside srvalid");
+      document.write("oioio");
+      var axios=require("axios");
+      axios.post('http://localhost:8080', {
+      fname : fn,
+      lname: ln,
+      
+      })
+      .then(function (response) {
+      fn.innerHTML = generateSuccessHTMLOutput(response);
+      console.log("inside axios post");
+      })
+      .catch(function (error) {
+      //fn.innerHTML = generateErrorHTMLOutput(error);
+      });
+  
+      //e.preventDefault();*/
+    }
+
+
+    
+</script>
+</head>
+<body>
+    <form name="myform" onsubmit="validate()" >
+          First_Name
+         <input type=text id="fname" name="fname"  />
+	       <span id="errfn" style="color: red ; visibility: hidden"><br>this is invalid first name<br></span>
+         <br> <br>
+          Last_Name
+         <input type=text id="lname" name="lname" />
+	       <span id="errln" style="color: red ; visibility: hidden"><br>this is invalid last name<br></span>
+         <br> <br>
+          
+         <input  id="but" type="submit"  onsubmit="validate()" value=SUBMIT /> 
+         <span id="button" style="color: green; visibility: hidden"><br>Form submitted successfully<br></span>
+
+    </form>
+</body>

@@ -15,8 +15,20 @@ app.get('/about', function(req, res) {
     res.render('pages/about');
 });
 
+app.get('/', function(req, res) {
+    console.log("inside get");
+    res.render('pages/ajform');
+});
+
+app.post('/', function(req, res) {
+    console.log("inside post");
+    //res.render('pages/ajform');
+});
+
 app.listen(8080);
 console.log('8080 is the magic port');
+
+
 
 app.get('/index', function(req, res) {
     var cent = [
