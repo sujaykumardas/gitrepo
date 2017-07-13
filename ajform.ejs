@@ -15,97 +15,97 @@
        var pin= /^[0-9]{6}$/;
        
        
-       var ch=0;
-        if(!str.test(myform.fname.value))
-        {
-           ch=1;
-           //document.getElemenyById("fname").style.borderColor= "red";
-           document.getElementById('errfn').style.visibility = "visible";
-           document.getElementById('fname').style.borderColor = "red";
+       // var ch=0;
+       //  if(!str.test(myform.fname.value))
+       //  {
+       //     ch=1;
+       //     //document.getElemenyById("fname").style.borderColor= "red";
+       //     document.getElementById('errfn').style.visibility = "visible";
+       //     document.getElementById('fname').style.borderColor = "red";
            
            
      
-        }
+       //  }
         
-        if(!str.test(myform.lname.value))
-        {
-           ch=1;
-           document.getElementById('errln').style.visibility = "visible";
-           document.getElementById('lname').style.borderColor = "red";
+       //  if(!str.test(myform.lname.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errln').style.visibility = "visible";
+       //     document.getElementById('lname').style.borderColor = "red";
            
-        }
-        if(!cpat.test(myform.cpt.value))
-        {
-           ch=1;
-           //document.getElemenyById("fname").style.borderColor= "red";
-           document.getElementById('errcpt').style.visibility = "visible";
-           document.getElementById('cpt').style.borderColor = "red";
+       //  }
+       //  if(!cpat.test(myform.cpt.value))
+       //  {
+       //     ch=1;
+       //     //document.getElemenyById("fname").style.borderColor= "red";
+       //     document.getElementById('errcpt').style.visibility = "visible";
+       //     document.getElementById('cpt').style.borderColor = "red";
            
-        }
-        if(!pin.test(myform.pnc.value))
-        {
-           ch=1;
-           //document.getElemenyById("fname").style.borderColor= "red";
-           document.getElementById('errpnc').style.visibility = "visible";
-           document.getElementById('pnc').style.borderColor = "red";
+       //  }
+       //  if(!pin.test(myform.pnc.value))
+       //  {
+       //     ch=1;
+       //     //document.getElemenyById("fname").style.borderColor= "red";
+       //     document.getElementById('errpnc').style.visibility = "visible";
+       //     document.getElementById('pnc').style.borderColor = "red";
            
-        }
-        if(!num.test(myform.age.value))
-        {
-           ch=1;
-           document.getElementById('errno').style.visibility = "visible";
-           document.getElementById('age').style.borderColor = "red";
+       //  }
+       //  if(!num.test(myform.age.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errno').style.visibility = "visible";
+       //     document.getElementById('age').style.borderColor = "red";
            
-        }
-        if(!yn.test(myform.ms.value))
-        {
-           ch=1;
-           document.getElementById('errms').style.visibility = "visible";
-           document.getElementById('ms').style.borderColor = "red";
+       //  }
+       //  if(!yn.test(myform.ms.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errms').style.visibility = "visible";
+       //     document.getElementById('ms').style.borderColor = "red";
            
-        }
-        if(!ph.test(myform.phn.value))
-        {
-           ch=1;
-           document.getElementById('errph').style.visibility = "visible";
-           document.getElementById('phn').style.borderColor = "red";
+       //  }
+       //  if(!ph.test(myform.phn.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errph').style.visibility = "visible";
+       //     document.getElementById('phn').style.borderColor = "red";
            
-        }
-        if(!dof.test(myform.dob.value))
-        {
-           ch=1;
-           document.getElementById('errdb').style.visibility = "visible";
-           document.getElementById('dob').style.borderColor = "red";
+       //  }
+       //  if(!dof.test(myform.dob.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errdb').style.visibility = "visible";
+       //     document.getElementById('dob').style.borderColor = "red";
            
-        }
-        if(!emid.test(myform.mid.value))
-        {
-           ch=1;
-           document.getElementById('erreid').style.visibility = "visible";
-           document.getElementById('mid').style.borderColor = "red";
+       //  }
+       //  if(!emid.test(myform.mid.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('erreid').style.visibility = "visible";
+       //     document.getElementById('mid').style.borderColor = "red";
            
-        }
-        if(!cgpaf.test(myform.gpa.value))
-        {
-           ch=1;
-           document.getElementById('errcg').style.visibility = "visible";
-           document.getElementById('gpa').style.borderColor = "red";
+       //  }
+       //  if(!cgpaf.test(myform.gpa.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errcg').style.visibility = "visible";
+       //     document.getElementById('gpa').style.borderColor = "red";
            
-        }
-        if(!pswd.test(myform.pid.value))
-        {
-           ch=1;
-           document.getElementById('errpid').style.visibility = "visible"; 
-           document.getElementById('pid').style.borderColor = "red";
+       //  }
+       //  if(!pswd.test(myform.pid.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errpid').style.visibility = "visible"; 
+       //     document.getElementById('pid').style.borderColor = "red";
            
-        }
-        if(ch==0)
-        {
-           document.getElementById('button').style.visibility = "visible"; 
-           //document.getElementById('button').innerHTML="<span </span>";
-           document.getElementById('but').style.borderColor = "Green";
+       //  }
+       //  if(ch==0)
+       //  {
+       //     document.getElementById('button').style.visibility = "visible"; 
+       //     //document.getElementById('button').innerHTML="<span </span>";
+       //     document.getElementById('but').style.borderColor = "Green";
            
-        }
+       //  }
        
       var obj={};
       obj.fname=document.getElementById('fname').value;
@@ -403,11 +403,11 @@
 	       <span id="errln" style="color: red ; visibility: hidden"><br>this is invalid last name<br></span>
          <br> <br>
           Age
-         <input type=number id="age" name=age  onfocus="clean3()"/>
+         <input type=number id="age" name=age  min="10" max="120" placeholder="Between 10-120" onfocus="clean3()"/>
          <span id="errno" style="color: red ; visibility: hidden"><br>this is invalid age<br></span>
          <br> <br>
           DOB
-         <input type=text id="dob" name=dob onfocus="clean4()" />
+         <input type=text id="dob" name=dob placeholder="dd-mm-yyyy or dd/mm/yyyy" onfocus="clean4()" />
          <span id="errdb" style="color: red ; visibility: hidden"><br>this is invalid birth date<br></span>
          <br> <br>
           MailId
@@ -415,19 +415,19 @@
          <span id="erreid" style="color: red ; visibility: hidden"><br>this is invalid email address<br></span>
          <br> <br>
           Married(Y/N)
-         <input type=text id="ms" name=ms onfocus="clean6()" />
+         <input type=text id="ms" name=ms placeholder="y yes n no" onfocus="clean6()" />
          <span id="errms" style="color: red ; visibility: hidden"><br>this is invalid maried status<br></span>
          <br> <br>
          Mobile no (Without code)
-         <input type=number id="phn" name=phn onfocus="clean7()" />
+         <input type=tel id="phn" name=phn placeholder="eg: 9907708767" onfocus="clean7()" />
          <span id="errph" style="color: red ; visibility: hidden"><br>this is invalid phone no<br></span>
-         <br> <br>
+         <br><br>
          AggregateCGPA(x.y)
-         <input type=text id="gpa" name=gpa onfocus="clean8()" />
+         <input type=text id="gpa" name=gpa placeholder="7.9999" onfocus="clean8()" />
          <span id="errcg" style="color: red ; visibility: hidden"><br>this is invalid cgpa<br></span>
          <br> <br>
          Pincode
-         <input type=number id="pnc" name="pnc"  onfocus="clean9()"/>
+         <input type=number id="pnc" name="pnc" placeholder="eg: 990770" min="100000" max="999999" onfocus="clean9()"/>
          <span id="errpnc" style="color: red ; visibility: hidden"><br>this is invalid pincode<br></span>
          <br> <br>
          Password
