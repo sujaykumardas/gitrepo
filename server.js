@@ -19,9 +19,9 @@ app.get('/', function(req, res) {
     console.log("inside get");
     res.render('pages/ajform');
 });
-
 app.post('/', function(req, res) {
-    console.log("inside post");
+   console.log("inside post");
+   //console.log(req.body.obj.fname);
     //res.render('pages/ajform');
 });
 
