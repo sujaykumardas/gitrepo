@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/sujay');
-var db = mongoose.connection;
+//mongoose.connect('mongodb://localhost/sujay');
+var db = mongoose.createConnection('mongodb://localhost/sujay')
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // we're connected!
@@ -8,3 +8,10 @@ db.once('open', function() {
 });
 
 var Schema = mongoose.Schema;
+var blogSchema = new Schema({
+  fname:  String,
+  lname: String,
+  
+});
+
+var funame = db.model("funame",blogSchema);
