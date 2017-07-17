@@ -1,17 +1,23 @@
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://localhost/sujay');
-var db = mongoose.createConnection('mongodb://localhost/sujay')
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-  console.log("Got connected");
-});
+
+var db = mongoose.connect('mongodb://localhost/sujay')
+
 
 var Schema = mongoose.Schema;
-var blogSchema = new Schema({
+var EmpSchema = new Schema({
   fname:  String,
   lname: String,
   
 });
 
-var funame = db.model("funame",blogSchema);
+//var Emp = db.model("funame",blogSchema);
+var Employee = mongoose.model('Employ', EmpSchema);
+var Emp1 = new Employee({fname:"sujay",lname:"das"});
+
+console.log(Emp1);
+var x=Emp1.save(function (err) {
+  if (!err) console.log('Success!');
+  else console.log("error");
+});
+
+module.exports=Emp1;
