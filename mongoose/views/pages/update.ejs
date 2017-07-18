@@ -68,7 +68,7 @@
           obj.pnc= document.getElementById('pnc').value;
           obj.mid= document.getElementById('mid').value;
           obj.pid= document.getElementById('pid').value;
-          obj.id=  data[0]._id;
+          obj.ide= document.getElementById('id').value;
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
@@ -237,11 +237,13 @@
          <span id="errpid" style="color: red ; visibility: hidden">
          <br>password min 8 char atleast 1 letter one num and one special character<br></span>
          
+         <input  id="id" type=text  value="<%= data[0]._id %>" style="color: red ; visibility: hidden"/> 
+
          <input  id="but" type="button"  onclick="validate()" value=INSERT /> 
          <span id="button" style="color: green; visibility: hidden">
-         <br>Data Inserted successfully<br></span>
+         <br>Data Updated successfully<br></span>
          <span id="button1" style="color: red; visibility: hidden">
-         <br>Data could not insert <br></span>
+         <br>Data could not update<br></span>
          
     </form>
 </body>
