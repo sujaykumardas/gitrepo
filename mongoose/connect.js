@@ -19,6 +19,26 @@ app.get('/insert', function(req, res) {
     //console.log("inside insert");
 });
 
+app.get('/Worker', function(req, res) {
+    var data=[];
+    var i=0;
+    Worker.find({}, function (err, docs) {
+           if(err){
+            console.log("error while reading");
+           }
+           data=docs;
+           docs.forEach(function(u) {
+              //data[i]=u;
+              i++;
+           //console.log(u);
+        });
+           console.log(data);
+           res.render('pages/Worker',{data:data});
+      });
+    
+    //console.log("inside insert");
+});
+
 app.get('/read', function(req, res) {
     res.render('pages/read');
     //console.log("inside insert");
@@ -63,15 +83,20 @@ app.post('/insert', function(req, res) {
     
 });
 
-app.post('/read', function(req, res) {
+/*app.post('/read', function(req, res) {
    console.log("inside post read");
-
+   var data=[];
    //console.log(Worker);  
    if(req.body.name=="worker"){
       console.log("inside worker");
       Worker.find({}, function (err, docs) {
+           if(err){
+            console.log("error while reading");
+           }
+           data=docs;
+           console.log(data);
            docs.forEach(function(u) {
-           console.log(u);
+           //console.log(u);
         });
       });
    }
@@ -81,7 +106,7 @@ app.post('/read', function(req, res) {
    }
   
   
-});     
+});   */  
 
   
     
