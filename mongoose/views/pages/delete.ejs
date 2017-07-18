@@ -1,0 +1,47 @@
+<html>
+<head>
+<script type="text/javascript">
+  function deleteF() {
+    console.log("inside delete");
+    var xhttp = new XMLHttpRequest();
+    var obj={};
+    obj.ide=document.getElementById('id').value;
+          xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+          
+            var Data = JSON.parse(xhttp.responseText);
+            console.log(Data);
+            if(Data.hasOwnProperty("cor")){
+              ch=1;
+              document.getElementById('button').style.visibility = "visible";
+              document.getElementById('but').style.borderColor = "green";
+            }
+            if(Data.hasOwnProperty("inc")){
+              ch=1;
+              document.getElementById('button1').style.visibility = "visible";
+              document.getElementById('but').style.borderColor = "red";
+            }
+          
+        
+         }
+
+       };
+    xhttp.open("POST", '/delete', true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(obj));   
+  }
+    
+</script>
+</head>
+<body>
+    <form name="myform"  >
+         <br><br>Confirm Deleting Document<br><br>
+         <input  id="but" type="button"  onclick="deleteF()" value="CONFIRMDELETE" /> 
+         <span id="button" style="color: green; visibility: hidden">
+         <br>Data Deleted successfully<br></span>
+         <span id="button1" style="color: red; visibility: hidden">
+         <br>Data could not delete<br></span>
+         <input  id="id" type=text  value="<%=obj.ide %>" style="color: red ; visibility: hidden"/> 
+         
+    </form>
+</body>

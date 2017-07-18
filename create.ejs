@@ -1,0 +1,36 @@
+<html>
+<head>
+<script type="text/javascript">
+    function createCol() 
+    {
+       var str= /^[A-Za-z]+$/;
+       var num= /^[0-9]{2}$/;
+       console.log("createcol");
+       var MongoClient = require('mongodb').MongoClient;
+       MongoClient.connect("mongodb://localhost:27017/sujay", function(err, db) {
+        if(!err) {
+          console.log("We are connected to sujay via create");
+          db.createCollection(document.getElementById("name").value, function(err, collection) {
+            if(!err){
+              document.getElementById('button').innerHTML="<span style='color: Green;'><br>Collection created successfully<br></span>";
+            }
+          });
+    
+        
+        
+        
+  
+    }
+</script>
+</head>
+<body>
+    <form name="myform"  >
+          Collection Name
+         <input type=text id="name" name="name"  />
+         <span id="errn"></span>
+         <br> <br>
+         <input  id="but" type=button onclick="createCol()" value=CREATE /> 
+         <span id="button"></span>
+
+    </form>
+</body>

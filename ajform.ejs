@@ -1,0 +1,447 @@
+<html>
+<head>
+<script type="text/javascript">
+    function validate() 
+    {
+       var str= /^[A-Za-z]+$/;
+       var num= /^[0-9]{2}$/;
+       var yn= /^(y|n){1}$/;
+       var dof= /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-](1[9][0-9][0-9]|2[0][10][0-6])$/;
+       var emid= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+       var ph =/^\d{10}$/;
+       var cgpaf= /^[0-9]{1}\.{1}[0-9]+$/;
+       var pswd= /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+       var cpat= /^sU8Nki$/i;
+       var pin= /^[0-9]{6}$/;
+       
+       
+       // var ch=0;
+       //  if(!str.test(myform.fname.value))
+       //  {
+       //     ch=1;
+       //     //document.getElemenyById("fname").style.borderColor= "red";
+       //     document.getElementById('errfn').style.visibility = "visible";
+       //     document.getElementById('fname').style.borderColor = "red";
+           
+           
+     
+       //  }
+        
+       //  if(!str.test(myform.lname.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errln').style.visibility = "visible";
+       //     document.getElementById('lname').style.borderColor = "red";
+           
+       //  }
+       //  if(!cpat.test(myform.cpt.value))
+       //  {
+       //     ch=1;
+       //     //document.getElemenyById("fname").style.borderColor= "red";
+       //     document.getElementById('errcpt').style.visibility = "visible";
+       //     document.getElementById('cpt').style.borderColor = "red";
+           
+       //  }
+       //  if(!pin.test(myform.pnc.value))
+       //  {
+       //     ch=1;
+       //     //document.getElemenyById("fname").style.borderColor= "red";
+       //     document.getElementById('errpnc').style.visibility = "visible";
+       //     document.getElementById('pnc').style.borderColor = "red";
+           
+       //  }
+       //  if(!num.test(myform.age.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errno').style.visibility = "visible";
+       //     document.getElementById('age').style.borderColor = "red";
+           
+       //  }
+       //  if(!yn.test(myform.ms.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errms').style.visibility = "visible";
+       //     document.getElementById('ms').style.borderColor = "red";
+           
+       //  }
+       //  if(!ph.test(myform.phn.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errph').style.visibility = "visible";
+       //     document.getElementById('phn').style.borderColor = "red";
+           
+       //  }
+       //  if(!dof.test(myform.dob.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errdb').style.visibility = "visible";
+       //     document.getElementById('dob').style.borderColor = "red";
+           
+       //  }
+       //  if(!emid.test(myform.mid.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('erreid').style.visibility = "visible";
+       //     document.getElementById('mid').style.borderColor = "red";
+           
+       //  }
+       //  if(!cgpaf.test(myform.gpa.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errcg').style.visibility = "visible";
+       //     document.getElementById('gpa').style.borderColor = "red";
+           
+       //  }
+       //  if(!pswd.test(myform.pid.value))
+       //  {
+       //     ch=1;
+       //     document.getElementById('errpid').style.visibility = "visible"; 
+       //     document.getElementById('pid').style.borderColor = "red";
+           
+       //  }
+       //  if(ch==0)
+       //  {
+       //     document.getElementById('button').style.visibility = "visible"; 
+       //     //document.getElementById('button').innerHTML="<span </span>";
+       //     document.getElementById('but').style.borderColor = "Green";
+           
+       //  }
+       
+      var obj={};
+      obj.fname=document.getElementById('fname').value;
+      obj.lname= document.getElementById('lname').value;
+      obj.age= document.getElementById('age').value;
+      obj.pnc= document.getElementById('pnc').value;
+      obj.dob= document.getElementById('dob').value;
+      obj.mid= document.getElementById('mid').value;
+      obj.ms= document.getElementById('ms').value;
+      obj.phn= document.getElementById('phn').value;
+      obj.gpa= document.getElementById('gpa').value;
+      obj.pid= document.getElementById('pid').value;
+      obj.cpt= document.getElementById('cpt').value;
+      console.log(JSON.stringify(obj));
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          //document.getElementById("errfn").innerHTML = this.responseText;
+          var Data = JSON.parse(xhttp.responseText);
+          console.log(Data);
+          if(Data.hasOwnProperty("fname"))
+          {
+           ch=1;
+           //document.getElemenyById("fname").style.borderColor= "red";
+           document.getElementById('errfn').style.visibility = "visible";
+           document.getElementById('fname').style.borderColor = "blue";
+           
+           
+     
+          }
+        
+          if(Data.hasOwnProperty("lname"))
+          {
+           ch=1;
+           document.getElementById('errln').style.visibility = "visible";
+           document.getElementById('lname').style.borderColor = "blue";
+           
+          }
+          if(Data.hasOwnProperty("cpt"))
+        {
+           ch=1;
+           //document.getElemenyById("fname").style.borderColor= "red";
+           document.getElementById('errcpt').style.visibility = "visible";
+           document.getElementById('cpt').style.borderColor = "blue";
+           
+        }
+        if(Data.hasOwnProperty("pnc"))
+        {
+           ch=1;
+           //document.getElemenyById("fname").style.borderColor= "red";
+           document.getElementById('errpnc').style.visibility = "visible";
+           document.getElementById('pnc').style.borderColor = "blue";
+           
+           
+        }
+        
+        if(Data.hasOwnProperty("age"))
+        {
+           ch=1;
+           document.getElementById('errno').style.visibility = "visible";
+           document.getElementById('age').style.borderColor = "blue";
+           
+           
+        }
+        if(Data.hasOwnProperty("ms"))
+        {
+           ch=1;
+           document.getElementById('errms').style.visibility = "visible";
+           document.getElementById('ms').style.borderColor = "blue";
+           
+           
+        }
+        if(Data.hasOwnProperty("phn"))
+        {
+           ch=1;
+           document.getElementById('errph').style.visibility = "visible";
+           document.getElementById('phn').style.borderColor = "blue";
+           
+           
+        }
+        if(Data.hasOwnProperty("dob"))
+        {
+           ch=1;
+           document.getElementById('errdb').style.visibility = "visible";
+           document.getElementById('dob').style.borderColor = "blue";
+           
+           
+        }
+        if(Data.hasOwnProperty("mid"))
+        {
+           ch=1;
+           document.getElementById('erreid').style.visibility = "visible";
+           document.getElementById('mid').style.borderColor = "blue";
+           
+           
+        }
+        if(Data.hasOwnProperty("gpa"))
+        {
+           ch=1;
+           document.getElementById('errcg').style.visibility = "visible";
+           document.getElementById('gpa').style.borderColor = "blue";
+           
+           
+        }
+        if(Data.hasOwnProperty("pid"))
+        {
+           ch=1;
+           document.getElementById('errpid').style.visibility = "visible"; 
+           document.getElementById('pid').style.borderColor = "blue";
+           
+        }
+        
+          if(Data.hasOwnProperty("but"))
+          {
+           document.getElementById('button').style.visibility = "visible"; 
+           //document.getElementById('button').innerHTML="<span </span>";
+           document.getElementById('but').style.borderColor = "red";
+           
+         }
+
+
+
+
+
+
+          //console.log(Data);
+        }
+      };
+      xhttp.open("POST", '/', true);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.send(JSON.stringify(obj));
+        
+  
+    }
+
+  
+
+   
+    function clean1(){
+        
+        
+           document.getElementById('errfn').style.visibility = "hidden"; 
+           document.getElementById('fname').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+   function clean2(){
+        
+        
+           document.getElementById('errln').style.visibility = "hidden"; 
+           document.getElementById('lname').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+    function clean3(){
+        
+        
+           document.getElementById('errno').style.visibility = "hidden"; 
+           document.getElementById('age').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+    function clean4(){
+        
+        
+           document.getElementById('errdb').style.visibility = "hidden"; 
+           document.getElementById('dob').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+    function clean5(){
+        
+        
+           document.getElementById('erreid').style.visibility = "hidden"; 
+           document.getElementById('mid').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+    function clean6(){
+        
+        
+           document.getElementById('errms').style.visibility = "hidden"; 
+           document.getElementById('ms').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+    function clean7(){
+        
+        
+           document.getElementById('errph').style.visibility = "hidden"; 
+           document.getElementById('phn').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+    function clean8(){
+        
+        
+           document.getElementById('errcg').style.visibility = "hidden"; 
+           document.getElementById('gpa').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+   function clean9(){
+        
+        
+           document.getElementById('errpnc').style.visibility = "hidden"; 
+           document.getElementById('pnc').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+   function clean10(){
+        
+        
+           document.getElementById('errpid').style.visibility = "hidden"; 
+           document.getElementById('pid').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+    function clean11(){
+        
+        
+           document.getElementById('errcpt').style.visibility = "hidden"; 
+           document.getElementById('cpt').style.borderColor = "black";
+            document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           
+           
+           
+     
+     
+    }
+    
+
+    
+</script>
+</head>
+<body>
+    <form name="myform"  >
+          First_Name
+         <input type=text id="fname" name="fname" onfocus="clean1()" />
+	       <span id="errfn" style="color: red ; visibility: hidden"><br>this is invalid first name<br></span>
+         <br> <br>
+          Last_Name
+         <input type=text id="lname" name="lname" onfocus="clean2()"/>
+	       <span id="errln" style="color: red ; visibility: hidden"><br>this is invalid last name<br></span>
+         <br> <br>
+          Age
+         <input type=number id="age" name=age  min="10" max="120" placeholder="Between 10-120" onfocus="clean3()"/>
+         <span id="errno" style="color: red ; visibility: hidden"><br>this is invalid age<br></span>
+         <br> <br>
+          DOB
+         <input type=text id="dob" name=dob placeholder="dd-mm-yyyy or dd/mm/yyyy" onfocus="clean4()" />
+         <span id="errdb" style="color: red ; visibility: hidden"><br>this is invalid birth date<br></span>
+         <br> <br>
+          MailId
+         <input type=email id="mid" name=mid onfocus="clean5()" />
+         <span id="erreid" style="color: red ; visibility: hidden"><br>this is invalid email address<br></span>
+         <br> <br>
+          Married(Y/N)
+         <input type=text id="ms" name=ms placeholder="y yes n no" onfocus="clean6()" />
+         <span id="errms" style="color: red ; visibility: hidden"><br>this is invalid maried status<br></span>
+         <br> <br>
+         Mobile no (Without code)
+         <input type=tel id="phn" name=phn placeholder="eg: 9907708767" onfocus="clean7()" />
+         <span id="errph" style="color: red ; visibility: hidden"><br>this is invalid phone no<br></span>
+         <br><br>
+         AggregateCGPA(x.y)
+         <input type=text id="gpa" name=gpa placeholder="7.9999" onfocus="clean8()" />
+         <span id="errcg" style="color: red ; visibility: hidden"><br>this is invalid cgpa<br></span>
+         <br> <br>
+         Pincode
+         <input type=number id="pnc" name="pnc" placeholder="eg: 990770" min="100000" max="999999" onfocus="clean9()"/>
+         <span id="errpnc" style="color: red ; visibility: hidden"><br>this is invalid pincode<br></span>
+         <br> <br>
+         Password
+         <input type=password id="pid" name=pid onfocus="clean10()" />
+         <span id="errpid" style="color: red ; visibility: hidden"><br>password min 8 char atleast 1 letter one num and one special character<br></span>
+         <br> <br>
+         Enter the text as it is<br> 
+         sU8Nki
+         <input type=text id="cpt" name=cpt  onfocus="clean11()"/> 
+         <span id="errcpt" style="color: red ; visibility: hidden"><br>this is incorrect captcha<br></span>
+         <br> <br>
+          
+         <input  id="but" type="button"  onclick="validate()" value=SUBMIT /> 
+         <span id="button" style="color: green; visibility: hidden"><br>Form submitted successfully<br></span>
+
+    </form>
+</body>

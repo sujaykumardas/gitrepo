@@ -1,0 +1,251 @@
+<html>
+<head>
+<script type="text/javascript">
+    function validate() 
+    {
+       var str= /^[A-Za-z]+$/;
+       var num= /^[0-9]{2}$/;
+       var emid= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+       var pswd= /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+       var pin= /^[0-9]{6}$/;
+       var ch=0;
+       document.getElementById('button').style.visibility = "hidden"; 
+       document.getElementById('but').style.borderColor = "black";
+       document.getElementById('button1').style.visibility = "hidden"; 
+       document.getElementById('but').style.borderColor = "black";
+       
+        if(!str.test(myform.fname.value))
+        {
+           ch=1;
+           
+           document.getElementById('errfn').style.visibility = "visible";
+           document.getElementById('fname').style.borderColor = "red";
+          
+        }
+
+        if(!str.test(myform.lname.value))
+        {
+           ch=1;
+           document.getElementById('errln').style.visibility = "visible";
+           document.getElementById('lname').style.borderColor = "red";
+           
+        }
+        
+        if(!pin.test(myform.pnc.value))
+        {
+           ch=1;
+           
+           document.getElementById('errpnc').style.visibility = "visible";
+           document.getElementById('pnc').style.borderColor = "red";
+           
+        }
+        if(!num.test(myform.age.value))
+        {
+           ch=1;
+           document.getElementById('errno').style.visibility = "visible";
+           document.getElementById('age').style.borderColor = "red";
+           
+        }
+
+        if(!emid.test(myform.mid.value))
+        {
+           ch=1;
+           document.getElementById('erreid').style.visibility = "visible";
+           document.getElementById('mid').style.borderColor = "red";
+           
+        }
+        
+        if(!pswd.test(myform.pid.value))
+        {
+           ch=1;
+           document.getElementById('errpid').style.visibility = "visible"; 
+           document.getElementById('pid').style.borderColor = "red";
+           
+        }
+        
+        if(ch==0) {
+          console.log("Validated successfully");
+          var obj={};
+          obj.fname=document.getElementById('fname').value;
+          obj.lname= document.getElementById('lname').value;
+          obj.age= document.getElementById('age').value;
+          obj.pnc= document.getElementById('pnc').value;
+          obj.mid= document.getElementById('mid').value;
+          obj.pid= document.getElementById('pid').value;
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+          
+            var Data = JSON.parse(xhttp.responseText);
+            console.log(Data);
+            if(Data.hasOwnProperty("cor")){
+              ch=1;
+              document.getElementById('button').style.visibility = "visible";
+              document.getElementById('but').style.borderColor = "green";
+            }
+            if(Data.hasOwnProperty("inc")){
+              ch=1;
+              document.getElementById('button1').style.visibility = "visible";
+              document.getElementById('but').style.borderColor = "red";
+            }
+          
+           
+          
+          
+        
+         }
+
+       };
+      xhttp.open("POST", '/insert', true);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.send(JSON.stringify(obj));
+        
+  
+      }
+    }
+
+    function clean1(){
+        
+        
+           document.getElementById('errfn').style.visibility = "hidden"; 
+           document.getElementById('fname').style.borderColor = "black";
+           document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           document.getElementById('button1').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+     
+    }
+   function clean2(){
+        
+        
+           document.getElementById('errln').style.visibility = "hidden"; 
+           document.getElementById('lname').style.borderColor = "black";
+           document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           document.getElementById('button1').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+     
+    }
+    function clean3(){
+        
+        
+           document.getElementById('errno').style.visibility = "hidden"; 
+           document.getElementById('age').style.borderColor = "black";
+           document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           document.getElementById('button1').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+      
+    }
+    
+    function clean5(){
+        
+        
+           document.getElementById('erreid').style.visibility = "hidden"; 
+           document.getElementById('mid').style.borderColor = "black";
+           document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           document.getElementById('button1').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+     
+    }
+    function clean6(){
+        
+        
+           document.getElementById('errms').style.visibility = "hidden"; 
+           document.getElementById('ms').style.borderColor = "black";
+           document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           document.getElementById('button1').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+     
+    }
+    function clean7(){
+        
+        
+           document.getElementById('errph').style.visibility = "hidden"; 
+           document.getElementById('phn').style.borderColor = "black";
+           document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           document.getElementById('button1').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+      
+    }
+    function clean8(){
+        
+        
+           document.getElementById('errcg').style.visibility = "hidden"; 
+           document.getElementById('gpa').style.borderColor = "black";
+           document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           document.getElementById('button1').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+     
+    }
+   function clean9(){
+        
+        
+           document.getElementById('errpnc').style.visibility = "hidden"; 
+           document.getElementById('pnc').style.borderColor = "black";
+           document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           document.getElementById('button1').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+     
+    }
+   function clean10(){
+        
+        
+           document.getElementById('errpid').style.visibility = "hidden"; 
+           document.getElementById('pid').style.borderColor = "black";
+           document.getElementById('button').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+           document.getElementById('button1').style.visibility = "hidden"; 
+           document.getElementById('but').style.borderColor = "black";
+     
+    }
+   
+    
+</script>
+</head>
+<body>
+    <form name="myform"  >
+          First_Name
+         <input type=text id="fname" name="fname" onfocus="clean1()" />
+         <span id="errfn" style="color: red ; visibility: hidden">
+         <br>this is invalid first name<br></span>
+         
+          Last_Name
+         <input type=text id="lname" name="lname" onfocus="clean2()"/>
+         <span id="errln" style="color: red ; visibility: hidden">
+         <br>this is invalid last name<br></span>
+         
+          Age
+         <input type=number id="age" name=age  min="10" max="120" placeholder="Between 10-120" onfocus="clean3()"/>
+         <span id="errno" style="color: red ; visibility: hidden">
+         <br>this is invalid age<br></span>
+        
+          MailId
+         <input type=email id="mid" name=mid onfocus="clean5()" />
+         <span id="erreid" style="color: red ; visibility: hidden">
+         <br>this is invalid email address<br></span>
+         
+          Pincode
+         <input type=number id="pnc" name="pnc" placeholder="eg: 452016 or452002" min="100000" max="999999" onfocus="clean9()"/>
+         <span id="errpnc" style="color: red ; visibility: hidden">
+         <br>this is invalid pincode<br></span>
+         
+          Password
+         <input type=password id="pid" name=pid onfocus="clean10()" />
+         <span id="errpid" style="color: red ; visibility: hidden">
+         <br>password min 8 char atleast 1 letter one num and one special character<br></span>
+         
+         <input  id="but" type="button"  onclick="validate()" value=INSERT /> 
+         <span id="button" style="color: green; visibility: hidden">
+         <br>Data Inserted successfully<br></span>
+         <span id="button1" style="color: red; visibility: hidden">
+         <br>Data could not insert <br></span>
+         
+    </form>
+</body>

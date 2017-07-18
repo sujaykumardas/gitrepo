@@ -1,0 +1,41 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/mongohead %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/mongoheader %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Worker</h1>
+            <p>WorkerData</p>
+	    <h2></h2>
+    		<ul>
+    			<% data.forEach(function(data) { %>
+        		<li>First Name: <%= data.fname %></li>
+                <li>Last Name: <%= data.lname %></li>
+                <li>Age: <%= data.age %></li>
+                <li>Email: <%= data.email %></li>
+                <li>PinCode: <%= data.pincode %></li>
+                <a href="/update/<%= data._id %>">UpdateDoc</a></br>
+                <a href="/delete/<%= data._id %>">DeleteDoc</a></br></br>
+    			<% }); %>
+    		</ul>
+        </div>
+    </main>
+    
+    
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>
