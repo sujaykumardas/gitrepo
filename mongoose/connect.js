@@ -19,6 +19,11 @@ app.get('/insert', function(req, res) {
     //console.log("inside insert");
 });
 
+app.get('/read', function(req, res) {
+    res.render('pages/read');
+    //console.log("inside insert");
+});
+
 app.use(bp.urlencoded({ extended: false }));
 app.use(bp.json());
 
@@ -52,11 +57,34 @@ app.post('/insert', function(req, res) {
     res.set('Content-Type', 'application/json');
     console.log(obj);
     res.send(JSON.stringify(obj));
-});     
+  });     
 
   
     
 });
+
+app.post('/read', function(req, res) {
+   console.log("inside post read");
+
+   //console.log(Worker);  
+   if(req.body.name=="worker"){
+      console.log("inside worker");
+      Worker.find({}, function (err, docs) {
+           docs.forEach(function(u) {
+           console.log(u);
+        });
+      });
+   }
+
+   else{
+      console.log("No such collection exists");
+   }
+  
+  
+});     
+
+  
+    
 
 app.listen(3000);
 console.log('3000 is the magic port');
