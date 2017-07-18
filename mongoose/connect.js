@@ -32,7 +32,7 @@ app.get('/Worker', function(req, res) {
               //i++;
            //console.log(u);
         });
-           console.log(data);
+           //console.log(data);
            res.render('pages/Worker',{data:data});
       });
     
@@ -47,7 +47,7 @@ app.get('/read', function(req, res) {
 app.get('/update/:id', function(req, res) {
     // var data=[];
     var id = req.params.id;
-    console.log(id);
+    //console.log(id);
     Worker.findById(id, function (err, docs) {
            if(err){
             console.log("error while reading");
@@ -60,10 +60,10 @@ app.get('/update/:id', function(req, res) {
 app.get('/delete/:id', function(req, res) {
     // var data=[];
     var id = req.params.id;
-    console.log(id);
+    //console.log(id);
     var obj={};
     obj.ide=id;
-    res.render('pages/delete', obj);
+    res.render('pages/delete',{obj : obj});
  }); 
     //console.log("inside insert");
 
@@ -168,22 +168,15 @@ app.post('/update', function(req, res) {
 
 app.post('/delete', function(req, res) {
   //console.log("inside post insert");
-   
-  Worker.findByIdAndUpdate(req.body.ide,{$set:{
-      fname:req.body.fname, 
-      lname:req.body.lname, 
-      age:req.body.age, 
-      password:req.body.pid, 
-      pincode:req.body.pnc, 
-      email:req.body.mid
-       }},function (err, docs) {
+  var obj={}; 
+  Worker.findByIdAndRemove(req.body.ide,function (err, docs) {
            if(err){
-            console.log("error while updating");
+            console.log("error while deleting");
             obj.inc="2";
             console.log("not successful"+err);
            }
            else{
-            var obj={};
+            
             obj.cor="1";
             console.log("success");
 

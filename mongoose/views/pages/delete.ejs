@@ -1,7 +1,8 @@
 <html>
 <head>
 <script type="text/javascript">
-  function delete(){
+  function deleteF() {
+    console.log("inside delete");
     var xhttp = new XMLHttpRequest();
     var obj={};
     obj.ide=document.getElementById('id').value;
@@ -35,12 +36,12 @@
 <body>
     <form name="myform"  >
          <br><br>Confirm Deleting Document<br><br>
-         <input  id="but" type="button"  onclick="delete()" value=CONFIRMDELETE /> 
+         <input  id="but" type="button"  onclick="deleteF()" value="CONFIRMDELETE" /> 
          <span id="button" style="color: green; visibility: hidden">
          <br>Data Deleted successfully<br></span>
          <span id="button1" style="color: red; visibility: hidden">
          <br>Data could not delete<br></span>
-         <input  id="id" type=text  value="<%= obj.ide %>" style="color: red ; visibility: hidden"/> 
+         <input  id="id" type=text  value="<%=obj.ide %>" style="color: red ; visibility: hidden"/> 
          
     </form>
 </body>

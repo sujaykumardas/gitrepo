@@ -9,7 +9,11 @@
        var pswd= /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
        var pin= /^[0-9]{6}$/;
        var ch=0;
-
+       document.getElementById('button').style.visibility = "hidden"; 
+       document.getElementById('but').style.borderColor = "black";
+       document.getElementById('button1').style.visibility = "hidden"; 
+       document.getElementById('but').style.borderColor = "black";
+       
         if(!str.test(myform.fname.value))
         {
            ch=1;
@@ -68,7 +72,7 @@
           obj.pnc= document.getElementById('pnc').value;
           obj.mid= document.getElementById('mid').value;
           obj.pid= document.getElementById('pid').value;
-          obj.ide= document.getElementById('id').value;
+
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
@@ -93,7 +97,7 @@
          }
 
        };
-      xhttp.open("POST", '/update', true);
+      xhttp.open("POST", '/insert', true);
       xhttp.setRequestHeader("Content-type", "application/json");
       xhttp.send(JSON.stringify(obj));
         
@@ -208,42 +212,40 @@
 <body>
     <form name="myform"  >
           First_Name
-         <input type=text id="fname" name="fname" value="<%= data.fname %>" onfocus="clean1()" />
+         <input type=text id="fname" name="fname" onfocus="clean1()" />
          <span id="errfn" style="color: red ; visibility: hidden">
          <br>this is invalid first name<br></span>
          
           Last_Name
-         <input type=text id="lname" name="lname" value="<%= data.lname %>" onfocus="clean2()"/>
+         <input type=text id="lname" name="lname" onfocus="clean2()"/>
          <span id="errln" style="color: red ; visibility: hidden">
          <br>this is invalid last name<br></span>
          
           Age
-         <input type=number id="age" name=age  min="10" max="120" placeholder="Between 10-120" value="<%= data.age %>" onfocus="clean3()"/>
+         <input type=number id="age" name=age  min="10" max="120" placeholder="Between 10-120" onfocus="clean3()"/>
          <span id="errno" style="color: red ; visibility: hidden">
          <br>this is invalid age<br></span>
         
           MailId
-         <input type=email id="mid" name=mid value="<%= data.email %>" onfocus="clean5()" />
+         <input type=email id="mid" name=mid onfocus="clean5()" />
          <span id="erreid" style="color: red ; visibility: hidden">
          <br>this is invalid email address<br></span>
          
           Pincode
-         <input type=number id="pnc" name="pnc" value="<%= data.pincode %>" placeholder="eg: 452016 or452002" min="100000" max="999999" onfocus="clean9()"/>
+         <input type=number id="pnc" name="pnc" placeholder="eg: 452016 or452002" min="100000" max="999999" onfocus="clean9()"/>
          <span id="errpnc" style="color: red ; visibility: hidden">
          <br>this is invalid pincode<br></span>
          
           Password
-         <input type=password id="pid" name=pid value="<%= data.password %>" onfocus="clean10()" />
+         <input type=password id="pid" name=pid onfocus="clean10()" />
          <span id="errpid" style="color: red ; visibility: hidden">
          <br>password min 8 char atleast 1 letter one num and one special character<br></span>
          
-         <input  id="id" type=text  value="<%= data._id %>" style="color: red ; visibility: hidden"/> 
-
-         <input  id="but" type="button"  onclick="validate()" value=UPDATE /> 
+         <input  id="but" type="button"  onclick="validate()" value=INSERT /> 
          <span id="button" style="color: green; visibility: hidden">
-         <br>Data Updated successfully<br></span>
+         <br>Data Inserted successfully<br></span>
          <span id="button1" style="color: red; visibility: hidden">
-         <br>Data could not update<br></span>
+         <br>Data could not insert <br></span>
          
     </form>
 </body>

@@ -4,12 +4,12 @@
 <html lang="en">
 
 <head>
-    <% include ../partials/head %>
+    <% include ../partials/mongohead %>
 </head>
 <body class="container">
 
     <header>
-        <% include ../partials/header %>
+        <% include ../partials/mongoheader %>
     </header>
 
     <main>
@@ -24,6 +24,8 @@
                 <li>Age: <%= data.age %></li>
                 <li>Email: <%= data.email %></li>
                 <li>PinCode: <%= data.pincode %></li>
+                <a href="/update/<%= data._id %>">UpdateDoc</a></br>
+                <a href="/delete/<%= data._id %>">DeleteDoc</a></br></br>
     			<% }); %>
     		</ul>
         </div>
