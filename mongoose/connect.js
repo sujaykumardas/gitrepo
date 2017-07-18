@@ -4,7 +4,7 @@ var bp = require('body-parser');
 var mongoose = require('mongoose');
 var Worker=require('./Worker.js');
 var app = express();
-
+var data=[];
 
 
 app.set('view engine', 'ejs');
@@ -20,8 +20,8 @@ app.get('/insert', function(req, res) {
 });
 
 app.get('/Worker', function(req, res) {
-    var data=[];
-    var i=0;
+    
+    //var i=0;
     Worker.find({}, function (err, docs) {
            if(err){
             console.log("error while reading");
@@ -29,7 +29,7 @@ app.get('/Worker', function(req, res) {
            data=docs;
            docs.forEach(function(u) {
               //data[i]=u;
-              i++;
+              //i++;
            //console.log(u);
         });
            console.log(data);
@@ -40,7 +40,24 @@ app.get('/Worker', function(req, res) {
 });
 
 app.get('/read', function(req, res) {
-    res.render('pages/read');
+    res.render('pages/Worker');
+    //console.log("inside insert");
+});
+
+app.get('/update', function(req, res) {
+    var data=[];
+    Worker.find({}, function (err, docs) {
+           if(err){
+            console.log("error while reading");
+           }
+           data=docs;
+           console.log(data);
+           docs.forEach(function(u) {
+           //console.log(u);
+        });
+           res.render('pages/update',{data:data});
+      });
+    
     //console.log("inside insert");
 });
 
@@ -108,7 +125,39 @@ app.post('/insert', function(req, res) {
   
 });   */  
 
+app.post('/update', function(req, res) {
+  //console.log("inside post insert");
+   
+  Worker.findByIdAndUpdate(req.body.ide,{$set:{
+      fname:req.body.fname, 
+      lname:req.body.lname, 
+      age:req.body.age, 
+      password:req.body.pid, 
+      pincode:req.body.pnc, 
+      email:req.body.mid
+       }},function (err, docs) {
+           if(err){
+            console.log("error while updating");
+            obj.inc="2";
+            console.log("not successful"+err);
+           }
+           else{
+            var obj={};
+            obj.cor="1";
+            console.log("success");
+
+           }
+           
+           res.set('Content-Type', 'application/json');
+           console.log(obj);
+           res.send(JSON.stringify(obj));
+           
+           
+      });
+    
   
+  
+});  
     
 
 app.listen(3000);
